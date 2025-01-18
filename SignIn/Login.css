@@ -1,0 +1,69 @@
+form {
+  margin-top: 100px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 90px;
+  background-color: rgba(238, 238, 238, 0.47);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px #4ca1a3;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #2e5077;
+  background-image: linear-gradient(to top, #2e5077, #4da1a9, #6edbbe);
+  background-size: 100% 300%;
+
+}
+
+@keyframes waves {
+  0% {
+    background-position: 0% 10%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.error {
+  color: red;
+  font-size: small;
+}
+#btn {
+  grid-column: span 3;
+  background-color: #15795f;
+  color: white;
+  border: none;
+  border: 0;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#btn:hover {
+  background-color: #74ed45;
+  transform: translateY(-2px);
+}
+#buttons {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.star {
+  color: red;
+}
+@media screen and (max-width: 768px) {
+  form {
+    width: 80%;
+  }
+
+  #forBtn {
+    margin-left: 0;
+  }
+}
