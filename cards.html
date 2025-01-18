@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organizer</title>
+    <link rel="stylesheet" href="cards.css" />
+    <link rel="icon" href="cards.css" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <a href="index.html">About</a>
+
+        <a href="#project">Projects</a>
+      </nav>
+
+      <a href="LogIn.html" class="button" id="SignButton"
+        >Sign In with another account?</a
+      >
+    </header>
+    <div class="container">
+      <button
+        class="sideBarBtn"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+      style="background-color: #00515a85"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+          <div class="user-details">
+            <h2 class="username" id="userNameDisplay">Username</h2>
+          </div>
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="profile">
+          <div class="avatar">😊</div>
+          <div class="user-details">
+            <p
+              class="email"
+              style="color: white; font-size: larger"
+              id="emailDisplay"
+            >
+              example@gmail.com
+            </p>
+          </div>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li>
+              <a href="index.html" class="active"
+                ><span>🏠</span> Home</a
+              >
+            </li>
+            <li>
+              <a href="#"><span>📂</span> Projects</a>
+            </li>
+            <li>
+              <a href="#"><span>🛠️</span> Services</a>
+            </li>
+          </ul>
+        </nav>
+        <a href="LogIn.html" class="logout">🔓 Log out</a>
+      </div>
+    </div>
+
+    <div class="theMainContent">
+      <h1>MY BOARD</h1>
+      <div id="projectContainer" class="project-container"></div>
+      <button class="button" onclick="showCreateProjectModal()">
+        Create New Project
+      </button>
+
+      <div class="modal-overlay" id="createEditProjectModal">
+        <div class="modal-content">
+          <h2 id="modalTitle">Create Project</h2>
+          <label>Project Title:</label>
+          <input
+            type="text"
+            id="projectTitle"
+            placeholder="Enter project title"
+            required
+          />
+          <label>Project Description:</label>
+          <textarea
+            id="projectDescription"
+            placeholder="Enter project description"
+          ></textarea>
+          <label>Project Progress (%):</label>
+          <input
+            type="number"
+            id="projectProgress"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+          />
+          <button id="modalButton" onclick="saveProject()">Save Project</button>
+          <button
+            class="modal-close-btn"
+            onclick="closeModal('createEditProjectModal')"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+      <div class="modal-overlay" id="createEditTaskModal">
+        <div class="modal-content">
+          <h2 id="taskModalTitle">Create Task</h2>
+          <label>Task Title:</label>
+          <input
+            type="text"
+            id="taskTitle"
+            placeholder="Enter task title"
+            required
+          />
+          <label>Task Description:</label>
+          <textarea
+            id="taskDescription"
+            placeholder="Enter task description"
+          ></textarea>
+          <label>Assign To:</label>
+          <input
+            type="text"
+            id="taskAssignee"
+            placeholder="Enter assignee name"
+          />
+          <label>Task Deadline:</label>
+          <input type="date" id="taskDeadline" />
+          <label>Status:</label>
+          <select id="taskStatus" class="task-status">
+            <option value="To-Do">To-Do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+          <div class="task-actions">
+            <button id="taskModalButton" onclick="saveTask()">Save Task</button>
+            <button
+              class="modal-close-btn"
+              onclick="closeModal('createEditTaskModal')"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"
+      ></script>
+      <script src="cards.js"></script>
+    </div>
+  </body>
+</html>
